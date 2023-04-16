@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Progracion en BackEnd</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos.css' %}" />
+  </head>
+
+  <header>
+    <nav>
+    <a ref="#inicio">Inicio</a>
+    <a ref="#resumen">Resumen</a>
+    <a ref="footer">Contacto</a>
+    </nav>
+
+      
+    <div>
+      <h1>Bienvenidos a Programacion Codo a Codo <h1>
+            <p>Estos son algunas de las app que vera.</p>
+    </div>
+
+           <section>
+     
+              {% for elemento in articulos %}
+              <article>
+               <h3>{{ elemento.nombre }}</h3>
+               <p>{{ elemento.contenido }}</p>
+
+              <img src="{{ elemento.imagen }}" />
+
+               <footer>Autor: {{elemento.autor}}</footer>
+             </article>
+
+            {% endfor %}
+           </section>
+       </header>
+   </body>
+  <footer>
+
+      
+
+        
+
+        <section>
+            <form action="" method="post">
+                  {% csrf_token %}
+                  <h2>Conoce Sobre Codo a Codo</h2>
+                  <input type="text" name="nombre" placeholder=" Dejanos tu Nombre"> <br>
+
+                  Tu E-mail, seguido de Tu Comentario : <br>
+                  <textarea name="mensaje" >
+                  </textarea> <br>
+
+                  <input type="submit" name="enviar" value="Enviar Comentaria"> 
+
+                  {% if mensaje %}
+                  <h2>{{ mensaje }}</h2>
+                  {% endif %} 
+                  
+            </form>
+
+        </section>
+        <h3 >Grupo N°4 de Django </h3> 
+  </footer>
+
+</html>
