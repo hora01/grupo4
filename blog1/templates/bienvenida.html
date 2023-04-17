@@ -5,19 +5,49 @@
     <title>Progracion en BackEnd</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'estilos.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}" />
+    <script src="https://kit.fontawesome.com/450a242195.js" crossorigin="anonymous"></script>
   </head>
 
+  <body>
   <header>
-    <nav>
-    <a ref="#inicio">Inicio</a>
-    <a ref="#resumen">Resumen</a>
-    <a ref="footer">Contacto</a>
-    </nav>
+    <div class="icon__menu">
+      <i class="fa-sharp fa-solid fa-bars" id="btn_open"></i>
+    </div>
+  </header>
 
+  <div class="menu__side" id="menu_side">
+
+    <div class="options__menu">
+
+      <a href="#" class="selected">
+        <div class="option">
+          <i class="fas fa-home" title="Inicio"></i>
+          <h4>Inicio</h4>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="option">
+          <i class="fa-regular fa-newspaper" title="Resumen"></i>
+          <h4>Resumen</h4>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="option">
+          <i class="fa-solid fa-envelope" title="Contacto"></i>
+          <h4>Contáctanos</h4>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
       
     <div>
-      <h1>Bienvenidos a Programacion Codo a Codo <h1>
-            <p>Estos son algunas de las app que vera.</p>
+      <h1>Bienvenidos a Programacion Codo a Codo </h1>
+        <h5>Estos son algunas de las app que vera.</h5>
     </div>
 
            <section>
@@ -36,12 +66,8 @@
            </section>
        </header>
    </body>
+
   <footer>
-
-      
-
-        
-
         <section>
             <form action="" method="post">
                   {% csrf_token %}
@@ -52,7 +78,7 @@
                   <textarea name="mensaje" >
                   </textarea> <br>
 
-                  <input type="submit" name="enviar" value="Enviar Comentaria"> 
+                  <input type="submit" name="enviar" value="Enviar mensaje"> 
 
                   {% if mensaje %}
                   <h2>{{ mensaje }}</h2>
@@ -61,7 +87,8 @@
             </form>
 
         </section>
-        <h3 >Grupo N°4 de Django </h3> 
+        <h3 >Grupo N°4 de Django </h3>
+        <script src="{% static 'script.js' %}"></script>
   </footer>
 
 </html>
