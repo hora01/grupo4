@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/450a242195.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body id="body">
   <header>
     <div class="icon__menu">
       <i class="fa-sharp fa-solid fa-bars" id="btn_open"></i>
@@ -87,8 +87,9 @@
             </form>
 
         </section>
-        <h3 >Grupo N°4 de Django </h3>
-        <script src="{% static 'script.js' %}"></script>
-  </footer>
-
+    <footer>
+        <h3 >Grupo N°4 de Django </h3>    
+    </footer>
+  {% load static %}
+  <script src="{% static 'menujs.js' %}"></script>
 </html>
