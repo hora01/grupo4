@@ -74,15 +74,14 @@
                   <h2>Conoce Sobre Codo a Codo</h2>
                   <input type="text" name="nombre" placeholder=" Dejanos tu Nombre"> <br>
 
-                  Tu E-mail, seguido de Tu Comentario : <br>
-                  <textarea name="mensaje" >
-                  </textarea> <br>
+                  {{form.as_p}}
 
-                  <input type="submit" name="enviar" value="Enviar mensaje"> 
+                  <input type="submit" name="enviar" value="Enviar Menasje"> 
 
                   {% if mensaje %}
                   <h2>{{ mensaje }}</h2>
                   {% endif %} 
+                  
                   
             </form>
 
