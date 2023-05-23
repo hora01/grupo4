@@ -1,17 +1,30 @@
-from django.shortcuts import render
-from Articulos.models import Entrada,Comentario
+from django.contrib import messages
+from email import message
+#from pyexpat.errors import messages
+from django.shortcuts import redirect, render
+from .models import Entrada
+from .models import Comentario
+from .forms import ComentarioForm
 
 # Create your views here.
 def home(request):
   articulos = Entrada.objects.all()
-  if request.method == "POST":
+ 
+  return render(request,"bienvenida.html",{"articulos":articulos})
 
-      nombre = request.POST["nombre"]
-      mensaje = request.POST["mensaje"]  
+def enviar_consulta(request):
+   if request.method == "POST":
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data['nombre'])
 
-      obj = Comentario(nombre=nombre,comentario=mensaje) 
-      obj.save()
-      mensaje = "Gracias por tu Comentario"
-      return render(request,"bienvenida.html",{"articulos":articulos,"mensaje":mensaje})
-  return render(request,"bienvenida.html", {"articulos":articulos})
-  
+            messages.add_message(request, messages.SUCCESS, 'Comentario enviado', extra_tags="tag1")
+
+            return redirect("enviar_consulta")
+   else:
+    
+        form = ComentarioForm()
+
+        context = {'form': form}
+
+        return render(request, 'enviar_consulta.html', context)
