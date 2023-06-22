@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}" />
+    <link rel="stylesheet"  href="{% static 'menu.css' %}" />
+{% endblock %}
+
+{% block titulo %}Inscripcción de alumnos{% endblock %}
+
+{% block encabezado %}
+<h1>En este sector usted puede inscribirse como alumno</h1>
+{% endblock %}
+
+{% block contenido %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+
+        <input type="submit">
+    </form>
+{% endblock %}

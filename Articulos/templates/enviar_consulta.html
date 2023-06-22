@@ -1,0 +1,38 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}" />
+{% endblock %}
+
+{% block titulo %}Envianos tu consulta{% endblock %}
+
+{% block encabezado %}
+    <h1>Envianos tu consulta</h1>
+    <h1>Nos pondremos en contacto a la brevedad</h1>
+{% endblock %}
+
+{% block contenido %}
+<form action="" method="post">
+  {% csrf_token %}
+  <section class="mensajes">
+    {% if messages %}
+        <ul class="messages_list , alert-warning">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+
+  {{form.as_p}}
+
+  <input type="submit" name="enviar" value="Enviar Menasje"> 
+
+  {% if mensaje %}
+  <h2>{{ mensaje }}</h2>
+  {% endif %} 
+    
+</form>
+{% endblock %}

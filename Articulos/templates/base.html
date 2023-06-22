@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Programación</title>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/450a242195.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    {% block extra_css %} {% endblock %}
+  </head>
+  <body id="body">
+    <header>
+        <section class="mensajes">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags}}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+        <div class="icon__menu">
+          <i class="fa-sharp fa-solid fa-bars" id="btn_open"></i>
+        </div>
+        {% block encabezado %} {% endblock %}
+    </header>
+      <div class="menu__side" id="menu_side">
+        <div class="options__menu">
+          <a href="{% url 'inicio' %}">
+            <div class="option">
+              <i class="fas fa-home" title="INICIO"></i>
+              <h4>INICIO</h4>
+            </div>
+          </a>
+          <a href="{% url 'alumnos_inscriptos' %}">
+            <div class="option">
+              <i class="fa-regular fa-newspaper" title="ALUMNOS INSCRIPTOS"></i>
+              <h4>ALUMNOS INSCRIPTOS</h4>
+            </div>
+          </a>
+          {% if perms.Articulos.add_alumno %}
+          <a href="{% url 'inscripccion_alumno' %}">
+            <div class="option">
+              <i class="fa-solid fa-graduation-cap" title="Inscripcción alumnos"></i>
+              <h4>INSCRIPCCIÓN ALUMNOS</h4>
+            </div>
+          </a>
+          {% endif %}
+          {% if perms.Articulos.add_alumno %}
+          <a href="{% url 'inscripccionprofesores' %}">
+            <div class="option">
+              <i class="fa-sharp fa-solid fa-person-chalkboard" title="Inscripcción profesores"></i>
+              <h4>INSCRIPCCIÓN PROFESORES</h4>
+            </div>
+          </a>
+          {% endif %}
+          <a href="{% url 'tareas' %}">
+            <div class="option">
+              <i class="fa-sharp fa-solid fa-person-chalkboard" title="Tareas"></i>
+              <h4>TAREAS</h4>
+            </div>
+          </a>
+          <a href="{% url 'enviar_consulta' %}">
+            <div class="option">
+              <i class="fa-solid fa-envelope" title="Contacto"></i>
+              <h4>CONSULTAS</h4>
+            </div>
+          </a>
+        </div>
+      </div>    
+
+    <main>
+        {% block contenido %} {% endblock %}
+    </main>
+    
+    <footer>
+        <h3 >Grupo N°4 de Django </h3>    
+    </footer>
+</body>
+{% load static %}
+<script src="{% static 'menu.js' %}"></script>
+</html>
+

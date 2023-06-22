@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}" />
+    <link rel="stylesheet"  href="{% static 'menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'fichas_alumnos.css' %}"/>
+{% endblock %}
+
+{% block titulo %}Alumnos inscriptos{% endblock %}
+
+{% block encabezado %}
+<h1>Alumnos Inscriptos</h1>
+{% endblock %}
+
+{% block contenido %}
+<section class="fichas_alumnos">
+    {% for alumno in object_list %}
+    <article>
+        <p><b>Nombre y apellido</b>: {{alumno.nombre_apellido}}</p>
+        <p><b>Email</b>: {{alumno.email}}</p>
+        <p><b>Teléfono</b>: {{alumno.teléfono}}</p>
+    </article>
+    {% empty %}
+    <article>No hay alumnos cargados</article>
+    {% endfor %}
+</section>
+{% endblock %}
