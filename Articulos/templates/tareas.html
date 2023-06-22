@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}" />
+    <link rel="stylesheet"  href="{% static 'menu.css' %}" />
+{% endblock %}
+
+{% block titulo %}Tareas segun curso{% endblock %}
+
+{% block encabezado %}
+<h1>Tareas segun curso</h1>
+{% endblock %}
+
+{% block contenido %}
+<section class="ficha_tareas">
+    {% for tareas in object_list %}
+    <article>
+        <p><b>Nombre</b>: {{tareas.nombre}}</p>
+        <p><b>Curso</b>: {{tareas.nombre_curso}}</p>
+        <p><b>Descripcción</b>: {{tareas.descripccion}}</p>
+        <p><b>Fecha de entrega</b>: {{tareas.fecha_de_entrega}}</p>
+    </article>
+    {% empty %}
+    <article>No hay tareas pendientes</article>
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 100;
+  padding: 100;
+  font-family:'Silkscreen';
+}
+
+body {
+  background-color: black;
+}
+
+
+title { text-align: center;
+
+}
+
+h1 {
+  text-align:center;
+  color:rgb(97, 66, 251);
+  font-size: 80px;
+  padding-left: 100px;
+  
+}
+
+h3 {
+  text-align: center;
+  color: rgb(153, 249, 153);
+  font-size: 20px;
+  margin-bottom: 20px;
+ 
+}
