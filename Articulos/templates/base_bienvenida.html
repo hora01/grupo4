@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Programación</title>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/450a242195.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    {% block extra_css %} {% endblock %}
+  </head>
+  <body id="body">
+    <header>
+        <section class="mensajes">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags}}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+        <div class="icon__menu">
+          <i class="fa-sharp fa-solid fa-bars" id="btn_open"></i>
+        </div>
+        {% block encabezado %} {% endblock %}
+    </header>
+    <main>
+        {% block contenido %} {% endblock %}
+    </main>
+    
+    <footer>
+        <h3 >Grupo N°4 de Django </h3>    
+    </footer>
+</body>
+{% load static %}
+<script src="{% static 'menu.js' %}"></script>
+</html>
+
