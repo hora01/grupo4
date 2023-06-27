@@ -45,3 +45,7 @@
     {# Assumes you set up the password_reset view in your URLconf #}
     <p><a href="{% url 'password_reset' %}"><h3>No recuerdo mi cosntraseña</h3></a></p>
 {% endblock %}
+
+<!--Faltaria identficar el tipo de usuario si es alumno, profesor o visitante asi los redirige a las paginas que tienen hailitadas cada uno cuando hacen el login-->
+<!--El template de registro (login) solo deberia mostrar el inicio con los cursos disponibles, la seccion de inscripccion de alumnos y la seccion de mensajes-->
+<!--Los profesores ven todo y los alumnos ven todo excepto la inscripccion de profesores-->
